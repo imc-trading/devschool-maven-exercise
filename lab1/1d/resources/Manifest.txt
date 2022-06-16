@@ -1,0 +1,2 @@
+Main-Class: com.imc.school.maven.HelloWorld
+Class-Path: ../lib/guava.jar

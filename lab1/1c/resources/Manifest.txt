@@ -1,0 +1,1 @@
+Main-Class: com.imc.school.maven.HelloWorld
