@@ -137,5 +137,5 @@ the `spotless-maven-plugin` to be able to format your code. You can bind any plu
 lifecycle to customize what your build does, or call the plugin's goals directory.
 
 The `exec-maven-plugin` we used in `2b` is an example of a custom plugin made by [Mojohaus](http://mojohaus.org/) for
-ease of use. In that example, we did not find the `exec:java` goal to any phase, but called it directly.
+ease of use. In that example, we did not bind the `exec:java` goal to any phase, but called it directly.
 

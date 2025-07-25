@@ -7,7 +7,7 @@ how that can go wrong.
 
 Let's build two versions of the same `Greeting` class:
 
-We'll put one of them in `dep1/`
+We'll put one of them in `greeting1/`
 ```java
 public class Greeting {
     public static String message() {
@@ -16,7 +16,7 @@ public class Greeting {
 }
 ```
 
-And the other in `dep2/`
+And the other in `greeting2/`
 ```java
 public class Greeting {
     public static String message() {
@@ -28,10 +28,10 @@ public class Greeting {
 Then, we can build them both into `jars`.
 
 ```shell
-$ javac dep1/Greeting.java -d target/dep1/
-$ jar --create --file=target/greeting1.jar -C target/dep1/ .
-$ javac dep2/Greeting.java -d target/dep2/
-$ jar --create --file=target/greeting2.jar -C target/dep2/ .
+$ javac greeting1/Greeting.java -d target/greeting1/
+$ jar --create --file=target/greeting1.jar -C target/greeting1/ .
+$ javac greeting2/Greeting.java -d target/greeting2/
+$ jar --create --file=target/greeting2.jar -C target/greeting2/ .
 ```
 
 Now, we create a `HelloWorld` class that depends on `Greeting`, in `src/`.
@@ -74,7 +74,7 @@ If the same class exists in multiple jars, then the version that is first in the
 
 ## What happens if you load another version of the class that doesn't have the same method?
 
-Let's make a third version of the `Greeting` class and put it in `dep3`, but change it so that `message` takes an 
+Let's make a third version of the `Greeting` class and put it in `greeting3`, but change it so that `message` takes an
 argument.
 ```
 public class Greeting {
@@ -85,8 +85,8 @@ public class Greeting {
 ```
 
 ```shell
-$ javac dep3/Greeting.java -d target/dep3/
-$ jar --create --file=target/greeting3.jar -C target/dep3/ .
+$ javac greeting3/Greeting.java -d target/greeting3/
+$ jar --create --file=target/greeting3.jar -C target/greeting3/ .
 ```
 
 Now, when if we run `HelloWorld` with this version on the classpath...

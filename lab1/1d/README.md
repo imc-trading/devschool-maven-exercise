@@ -112,7 +112,7 @@ Class-Path: ../lib/guava.jar
 
 and then build the jar the same as before with
 ```shell
-$ jar --create --file=target/helloworld.jar --manifest=resources/Manifest.txt -C target/ .
+$ jar --create --file=target/helloworld.jar --manifest=resources/Manifest.txt -C target/classes/ .
 ```
 
 Then we don't need to pass in the main class or the class path when calling `java`.
@@ -169,7 +169,7 @@ class HelperTest {
 We can compile all test files with:
 
 ```shell
-javac -sourcepath src/test -classpath lib/junit-platform.jar:target/classes -d target/test-classes/ src/test/**/*Test.java
+javac -sourcepath src/test -classpath lib/junit-platform.jar:target/classes -d target/test-classes/ $(find src/test -name "*.java")
 ```
 
 Finally, we can run the tests with:
